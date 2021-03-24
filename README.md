@@ -21,4 +21,3 @@ We’re allowing users to import their own spotify playlists and add tags to the
 One of the main requirements is to work with data available from some public, free, Web API. Provide a brief description of the Web API you intend to use
 We intend to use the Spotify playlist API to load playlists from users’ spotify accounts, and to allow users to save playlists to their own spotify accounts.
 https://developer.spotify.com/documentation/web-api/
-Github link: https://github.com/nickhil-tekwani/wbdv-sp21-vibeify
