@@ -3,18 +3,14 @@ import './App.scss';
 import Nav from './components/Nav'
 import Main from './components/Main'
 
-
-
-
-
-function App() {
+const App = () => {
   return (
     <div> className="outerWrap"
       <div className="App">
         <Nav />
         <Main />
       </div>
-      <div className="musicControls">music controls</div>
+      <div className="musicControls">add music controls here later</div>
     </div>
   );
 }

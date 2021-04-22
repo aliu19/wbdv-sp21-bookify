@@ -1,5 +1,5 @@
 import React from 'react'
-import logo from '../spotify-2.svg'
+import logo from '../svgs/spotify-logo.svg'
 
 
 const Nav = () => {
