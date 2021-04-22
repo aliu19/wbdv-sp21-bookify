@@ -7,7 +7,9 @@ $greenMain: #1db954;
 
 .App {
   height: calc(100vh - 90px);
-  background: $greyLight
+  background: $greyLight;
+  display: flex;
+
 }
 
 .navBar {
@@ -68,4 +70,52 @@ $greenMain: #1db954;
   align-items: center;
   justify-content: center;
   color: white;
+  z-index: 2;
+  position: relative;
+}
+
+.upperNav {
+  background: $greyNav;
+  height: 56px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  color: white;
+  padding: 0.5rem 2rem;
+}
+
+.main {
+  width: 100%;
+  .mainContent {
+    color: white;
+    padding: 0.5rem 2rem;
+    h1 {
+      font-size: 1.8rem;
+    }
+  }
+}
+
+.cardsWrap {
+  .card {
+    background: $greyLighter;
+    border-radius: 10px;
+    width: 200px;
+    overflow: hidden;
+    padding: 1.3rem;
+    .cardImage {
+      height: 160px;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+    .cardContent {
+      padding: 0.4rem;
+      h3 {
+        font-weight: 600;
+        font-size: 0.9rem;
+      }
+    }
+  }
 }
