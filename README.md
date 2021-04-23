@@ -4,6 +4,14 @@ Srilekha Nuli
 Andrew Liu
 Timothy Chen
 
+#TODO: 
+
+- Current home page is login->auth, doesn't fit requirements but should be fine. If we really want we can just route    the user to the main music player page first and have them login after? Otherwise is generally fleshed out.
+- Profile page needs to be implemented & linked to backend. Needs to be routed to from the music player.
+- Search
+- Login/Register needs to be implemented & linked to backend. Needs to be routed to from the music player.
+
+
 CS5610 Final Project P1
 
 State the problem to solve
