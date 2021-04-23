@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
-import Nav from './components/Nav'
-import Main from './components/Main'
+
 import Login from './components/Login';
 import Player from './components/Player';
 import { getTokenFromUrl } from './spotify';
@@ -38,27 +37,27 @@ function App() {
         });
       });
 
-  // call to the API saying get the user's playlists 
-  spotify.getUserPlaylists().then((playlists) => {
-    dispatch({
-      type: "SET_PLAYLISTS",
-      playlists: playlists,
-    });
-  });
-}
+      // call to the API saying get the user's playlists 
+      spotify.getUserPlaylists().then((playlists) => {
+        dispatch({
+          type: "SET_PLAYLISTS",
+          playlists: playlists,
+        });
+      });
+    }
+
   }, []);
 
 
 
-return (
+  return (
     <div className="App">
       {/* if there's a token, render the app. otherwise render the login page */}
       {
-        token ? <Player spotify={spotify} />
-          : <Login />
+        token ? <Player spotify={spotify} /> : <Login />
       }
     </div>
-);
+  );
 }
 
 export default App;
