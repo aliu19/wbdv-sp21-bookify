@@ -7,6 +7,13 @@
     transition: 200ms color ease-in;
 }
 
+/* styles horizontal row */
+.sidebar > hr {
+    border: 1px solid #282828;
+    width: 90%;
+    margin: 10px auto;
+}
+
 .sidebarOption:hover {
     color: white;
 }

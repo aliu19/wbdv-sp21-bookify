@@ -10,8 +10,7 @@ import { useDataLayerValue } from "./components/DataLayer";
 
 const spotify = new SpotifyWebApi();
 
-const App = () => {
-
+function App() {
   const [{ user, token }, dispatch] = useDataLayerValue();
 
   // after spotify handles the authentication, we get the access token from the URL we're given
@@ -25,40 +24,41 @@ const App = () => {
       dispatch({
         type: "SET_TOKEN",
         token: _token,
-      })
+      });
 
       // gives access token to the spotify API
       spotify.setAccessToken(_token);
 
       // if logged in here, then dispatch action will run. the dispatch action will pop the user into the datalayer,
       // afterwards we will pull it from the data layer and read it
-      spotify.getMe().then(user => {
-
+      spotify.getMe().then((user) => {
         dispatch({
           type: 'SET_USER',
           user: user,
         });
       });
-    }
 
+  // call to the API saying get the user's playlists 
+  spotify.getUserPlaylists().then((playlists) => {
+    dispatch({
+      type: "SET_PLAYLISTS",
+      playlists: playlists,
+    });
+  });
+}
   }, []);
 
 
 
-  return (
-    <div className="outerWrap">
-      <div className="App">
-        {/* if there's a token, render the app. otherwise render the login page */}
-        {
-          token ? <Player spotify={spotify} />
-            : <Login />
-        }
-
-        {/* <Nav />
-        <Main /> */}
-      </div>
+return (
+    <div className="App">
+      {/* if there's a token, render the app. otherwise render the login page */}
+      {
+        token ? <Player spotify={spotify} />
+          : <Login />
+      }
     </div>
-  );
+);
 }
 
 export default App;
