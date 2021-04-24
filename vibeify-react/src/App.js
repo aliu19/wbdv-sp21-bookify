@@ -64,9 +64,8 @@ function App() {
   return (
     <div className="App">
       {/* if there's a token, render the app. otherwise render the login page */}
-      {
-        token ? <Player spotify={spotify} /> : <Login />
-      }
+      {!token && <Login />}
+      {token && <Player spotify={spotify} />}
     </div>
   );
 }
