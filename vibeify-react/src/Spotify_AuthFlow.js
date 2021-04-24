@@ -1,5 +1,5 @@
-export const authEndpoint = 
-"https://accounts.spotify.com/authorize";
+export const authEndpoint =
+    "https://accounts.spotify.com/authorize";
 
 const redirectUri = "http://localhost:3000/";
 
@@ -21,7 +21,6 @@ export const getTokenFromUrl = () => {
         .reduce((initial, item) => {
             let parts = item.split('=');
             initial[parts[0]] = decodeURIComponent(parts[1]);
-
             return initial;
         }, {});
 }

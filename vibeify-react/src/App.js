@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import Login from './components/Login';
 import Player from './components/Player';
-import { getTokenFromUrl } from './spotify';
+import { getTokenFromUrl } from './Spotify_AuthFlow';
 import SpotifyWebApi from "spotify-web-api-js";
 import { useDataLayerValue } from "./components/DataLayer";
 
 const spotify = new SpotifyWebApi();
 
 function App() {
-  const [{ user, token }, dispatch] = useDataLayerValue();
+  const [{ token }, dispatch] = useDataLayerValue();
 
   // after spotify handles the authentication, we get the access token from the URL we're given
   useEffect(() => {
@@ -44,15 +44,20 @@ function App() {
       });
 
       // hardcoded for the Proximity playlist
-      spotify.getPlaylist('3VEFRGe3APwGRl4eTpMS4x').then((response) => 
-          dispatch({
-            type: "SET_PROXIMITY",
-            proximity: response,
-          })
-        );
+      spotify.getPlaylist('3VEFRGe3APwGRl4eTpMS4x').then((response) =>
+        dispatch({
+          type: "SET_PROXIMITY",
+          proximity: response,
+        })
+      );
 
-        };
-  }, []);
+
+
+
+
+
+    };
+  }, [token, dispatch]);
 
 
 

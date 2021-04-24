@@ -10,6 +10,7 @@ Timothy Chen
 - Profile page needs to be implemented & linked to backend. Needs to be routed to from the music player.
 - Search (in progress)
 - Implement music playing capability (in progress)
+    - audio works, still needs fleshing out
 - Login/Register needs to be implemented & linked to backend. Needs to be routed to from the music player.
 - Implement create playlist button on sidebar
 
