@@ -44,8 +44,16 @@ function App() {
           playlists: playlists,
         });
       });
-    }
 
+      // hardcoded for the Proximity playlist
+      spotify.getPlaylist('3VEFRGe3APwGRl4eTpMS4x').then((response) => 
+          dispatch({
+            type: "SET_PROXIMITY",
+            proximity: response,
+          })
+        );
+
+        };
   }, []);
 
 
