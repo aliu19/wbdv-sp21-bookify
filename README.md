@@ -4,6 +4,8 @@ Srilekha Nuli
 Andrew Liu
 Timothy Chen
 
+spotify-web-api-js wrapper documentation: https://github.com/JMPerez/spotify-web-api-js
+
 #TODO: 
 
 - Current home page is login->auth, doesn't fit requirements but should be fine. If we really want we can just route    the user to the main music player page first and have them login after? Otherwise is generally fleshed out.
