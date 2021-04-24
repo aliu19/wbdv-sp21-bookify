@@ -27,6 +27,7 @@ const reducer = (state, action) => {
                 ...state,
                 playlists: action.playlists,
             };
+        //hard coded for just the specific playlist called proximity
         case 'SET_PROXIMITY':
             return {
                 ...state,
