@@ -18,6 +18,7 @@ function Sidebar() {
                 src="https://developer.spotify.com/assets/branding-guidelines/icon3@2x.png"
                 alt=""
             />
+            <h3 className="logo_title">VIBEIFY</h3>
             <SidebarOption Icon={HomeIcon} title="Home"/>
             <SidebarOption Icon={SearchIcon} title="Search"/>
             <SidebarOption Icon={LibraryMusicIcon} title="Your Library"/>

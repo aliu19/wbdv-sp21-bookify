@@ -10,6 +10,17 @@
     
 }
 
+.logo_title, .sidebar_logo {
+    position: relative;
+}
+
+.logo_title {
+    padding-left: 25px;
+    position: absolute;
+    z-index: 1;
+    top: 90px;
+}
+
 .sidebar_logo {
     margin-right: auto;
     height: 100px;
