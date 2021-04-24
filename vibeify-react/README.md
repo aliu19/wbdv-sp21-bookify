@@ -1,6 +1,8 @@
 1. clone repo
 2. npm install
 3. npm start
+further implementation will pretty much revolve around this:
+https://www.npmjs.com/package/spotify-web-api-js
 
 # Getting Started with Create React App
 
