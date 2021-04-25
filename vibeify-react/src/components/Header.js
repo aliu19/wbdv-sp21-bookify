@@ -1,9 +1,8 @@
-import React, { useState } from 'react'
+import React from 'react'
 import './components_css/Header.css'
 import SearchIcon from "@material-ui/icons/Search";
 import { Avatar } from "@material-ui/core";
 import { useDataLayerValue } from './DataLayer';
-
 
 function Header() {
     const [{ user }, dispatch] = useDataLayerValue();
@@ -13,9 +12,8 @@ function Header() {
             <div className="header_left">
                 <SearchIcon />
                 <input
-                    placeholder="Search for Artists/Songs"
-                    text="search"
-
+                    placeholder="Search for Artists, Songs"
+                    text="text"
                 />
             </div>
             <div className="header_right">
