@@ -5,6 +5,7 @@ Andrew Liu
 Timothy Chen
 
 spotify-web-api-js wrapper documentation: https://github.com/JMPerez/spotify-web-api-js
+help with spotify wrapper functions: https://www.codota.com/code/javascript/functions/spotify-web-api-node/SpotifyWebApi/createPlaylist
 
 #TODO: 
 
