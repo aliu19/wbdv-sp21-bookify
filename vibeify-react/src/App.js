@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import Login from './components/Login';
 import Player from './components/Player';
 import { getTokenFromUrl } from './Spotify_AuthFlow';
 import SpotifyWebApi from "spotify-web-api-js";
 import { useDataLayerValue } from "./components/DataLayer";
+import { Switch, Route, BrowserRouter as Router, Redirect } from 'react-router-dom'
+import NonUserHome from './components/NonUserHome';
 
 const spotify = new SpotifyWebApi();
 
@@ -50,23 +52,30 @@ function App() {
           proximity: response,
         })
       );
-
-
-
-
-
-
     };
   }, [token, dispatch]);
 
-
-
   return (
-    <div className="App">
-      {/* if there's a token, render the app. otherwise render the login page */}
-      {!token && <Login />}
-      {token && <Player spotify={spotify} />}
-    </div>
+    <Router>
+      <div className="App">
+        <Switch>
+          {/* Routes for users */}
+          {token && (
+            <Fragment>
+              <Route path="/"><Player spotify={spotify} /></Route>
+              <Redirect path="/login" to="/"></Redirect>
+            </Fragment>
+          )}
+            {/* Routes for non-users */}
+          {!token && (
+            <Fragment>
+              <Route path="/" exact><NonUserHome spotify={spotify} /></Route>
+              <Route path="/login" component={Login}></Route>
+            </Fragment>
+          )}
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
