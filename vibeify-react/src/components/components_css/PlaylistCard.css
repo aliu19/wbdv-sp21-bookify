@@ -1,0 +1,20 @@
+.playlist-card {
+    margin-right: 2rem;
+    display: inline-block;
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.playlist-card:hover .playlist-card__image {
+    box-shadow: 0 0 7px white;
+}
+
+.playlist-card__image {
+    width: 200px;
+    margin-bottom: .25rem;
+}
+
+.playlist-card__name {
+    font-weight: 700;
+    font-size: 1.125rem;
+}
