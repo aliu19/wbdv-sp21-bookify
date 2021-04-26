@@ -17,4 +17,6 @@
 .playlist-card__name {
     font-weight: 700;
     font-size: 1.125rem;
+    color: white;
+    text-decoration: none;
 }
