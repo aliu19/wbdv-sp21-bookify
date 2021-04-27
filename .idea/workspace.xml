@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="7dbff662-0ae5-4e71-9fdc-f65509ff01c5" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/search-functionality/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/search-functionality/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/search-functionality/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/search-functionality/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/search-functionality/public/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/search-functionality/public/robots.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/search-functionality/src/App.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/search-functionality/src/App.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/search-functionality/src/Credentials.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/search-functionality/src/Detail.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/search-functionality/src/Dropdown.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/search-functionality/src/Listbox.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/search-functionality/src/index.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/search-functionality/src/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vibeify-react/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vibeify-react/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vibeify-react/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vibeify-react/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vibeify-react/public/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vibeify-react/public/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vibeify-react/public/logo192.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vibeify-react/public/logo512.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vibeify-react/public/manifest.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vibeify-react/public/robots.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vibeify-react/src/App.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vibeify-react/src/Spotify_AuthFlow.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vibeify-react/src/components/Body.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vibeify-react/src/components/DataLayer.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vibeify-react/src/components/Footer.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vibeify-react/src/components/Header.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vibeify-react/src/components/Login.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vibeify-react/src/components/Player.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vibeify-react/src/components/Sidebar.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vibeify-react/src/components/SidebarOption.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vibeify-react/src/components/SongRow.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vibeify-react/src/components/components_css/Body.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vibeify-react/src/components/components_css/Footer.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vibeify-react/src/components/components_css/Header.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vibeify-react/src/components/components_css/Login.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vibeify-react/src/components/components_css/Player.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vibeify-react/src/components/components_css/Sidebar.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vibeify-react/src/components/components_css/SidebarOption.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vibeify-react/src/components/components_css/SongRow.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vibeify-react/src/index.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vibeify-react/src/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vibeify-react/src/reducers/reducer.js" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1rgSNXrEwttbkw4Iv9ibZKqoybK" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7dbff662-0ae5-4e71-9fdc-f65509ff01c5" name="Default Changelist" comment="" />
+      <created>1619396200041</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1619396200041</updated>
+      <workItem from="1619396207285" duration="107000" />
+      <workItem from="1619398022691" duration="3941000" />
+      <workItem from="1619524275537" duration="367000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
