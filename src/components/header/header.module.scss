@@ -1,0 +1,15 @@
+.nav__contents {
+    display: flex;
+    flex: auto;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+
+
+.search-bar__wrapper {
+    flex-flow: row nowrap;
+    .btn {
+        display: inline-block;
+    }
+}
+

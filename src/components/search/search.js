@@ -1,43 +1,40 @@
 import React, {useEffect, useState} from "react";
 import bookService from "../../services/book-service"
-import {Link, useParams, useHistory} from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import BookRow from "../book-row";
 
 const Search = () => {
 
-  const {title} = useParams()
-  const [results, setResults] = useState({items: []})
-  const [searchTitle, setSearchTitle] = useState("")
-  const history = useHistory()
+
+  const { searchQuery } = useParams()
+  const [results, setResults] = useState({})
+  const [searching, setSearching] = useState(true)
 
   useEffect(() => {
-    setSearchTitle(title)
-    if(title) {
-      bookService.findBookByTitle(title)
-      .then(result => setResults(result))
-    }
-  }, [title])
+    searchQuery && bookService.findBookByTitle(searchQuery).then(result => {
+      setResults(result);
+      setSearching(false);
+    })
+
+  }, [searchQuery])
+  console.log(results)
 
   return(
-      <div>
-        <h1>Search</h1>
-        <input className="form-control"
-               onChange={(event) => setSearchTitle(event.target.value)}
-               value={searchTitle }/>
-        <button className="btn btn-primary btn-block"
-                onClick={() => history.push(`/search/${searchTitle}`)}>
-          Search
-        </button>
-        <ul className="list-group">
+    <div>
+      <h1>Search: {searchQuery}</h1>
+      {results.items ? (<ul className="list-group">
           {
             results.items.map(book =>
                 <li className="list-group-item" key={book.id}>
-                  <Link to={`/details/${book.id}`}>
-                    {book.volumeInfo.title}
-                  </Link>
+                <BookRow book={book} />
                 </li>
             )
-          }
-        </ul>
+          } 
+      </ul>) :
+        searching ?
+          (<div>Loading results</div>)
+          :
+        (<div>There were no results for "{searchQuery}"</div>)}
       </div>
   )
 }

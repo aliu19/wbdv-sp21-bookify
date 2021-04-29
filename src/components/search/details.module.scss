@@ -1,0 +1,23 @@
+@import "../../../node_modules/bootstrap/scss/_functions.scss";
+@import "../../../node_modules/bootstrap/scss/_variables.scss";
+
+.book-description {
+    max-width: 70ch;
+    z-index: -2;
+
+    .summary &::after {
+        z-index: 0;
+        content: "";
+        position: absolute;
+        top: 50%;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-image: linear-gradient(to bottom, transparent 50%, $dark 95%);
+    }
+}
+
+.details h1 {
+    font-size: 2rem;
+}
+

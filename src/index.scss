@@ -1,0 +1,25 @@
+$main-font: 'Roboto Slab';
+
+$font-family-sans-serif: 'Roboto Slab', 'serif';
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+$enable-gradients: true;
+
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+
+.small-heading {
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  font-weight: 700;
+}
