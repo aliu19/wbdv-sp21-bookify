@@ -27,6 +27,7 @@ const Details = () => {
         <p>
           {book.description}
         </p>
+      {/*  TODO render reviews for the book, must log in the make a review but can see others*/}
       </div>
   )
 }

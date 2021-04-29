@@ -4,8 +4,11 @@ const Register = () => {
   return (
       <div>
         <h1>
-          Login
+          Register
         </h1>
+      {/*  TODO CreateUser
+      TODO username, password, first name, last name, email, role
+      TODO link to login*/}
       </div>
   )
 }

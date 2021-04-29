@@ -6,6 +6,9 @@ const Login = () => {
         <h1>
           Login
         </h1>
+      {/*  TODO GetUser
+      TODO username and password
+      TODO link to register*/}
       </div>
   )
 }

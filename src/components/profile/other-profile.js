@@ -6,6 +6,7 @@ const OtherProfile = () => {
         <h1>
           Other Profile
         </h1>
+      {/*  TODO GetUser*/}
       </div>
   )
 }

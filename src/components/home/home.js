@@ -11,6 +11,8 @@ const Home = () => {
         <Link to="login">
           Login
         </Link>
+      {/*  TODO change to logout button when logged in
+      TODO recent reviews*/}
       </div>
   )
 }
