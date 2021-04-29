@@ -10,10 +10,10 @@ function App() {
         <Route path={["/"]} exact={true}>
           <Home/>
         </Route>
-        <Route path={["/search", "/search/:track"]} exact={true}>
+        <Route path={["/search", "/search/:title"]} exact={true}>
           <Search/>
         </Route>
-        <Route path={["/details/:trackId"]} exact={true}>
+        <Route path={["/details/:bookId"]} exact={true}>
           <Details/>
         </Route>
       </BrowserRouter>
