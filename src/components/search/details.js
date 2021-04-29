@@ -21,7 +21,7 @@ const Details = () => {
 
   return(
     <div className={`${styles["details"]} row`}>
-      <div className="col-12 col-md-3">
+      <div className="col-12 col-md-3 mb-4">
         {
           cover && <img className="img-fluid" src={cover.small} alt={`Book cover for "${book.title}"`} />
         }
