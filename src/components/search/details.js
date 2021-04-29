@@ -19,7 +19,7 @@ const Details = () => {
   }, [bookId])
 
   return(
-    <div className="row">
+    <div className={`${styles["details"]} row`}>
       <div className="col-12 col-md-3">
         {
           cover && <img className="img-fluid" src={cover.small} alt={`Book cover for "${book.title}"`} />
