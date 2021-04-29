@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import bookService from "../../services/book-service";
+import BookCard from "../book-card";
 import Details from "../search/details";
 
 const Home = () => {
@@ -21,7 +22,16 @@ const Home = () => {
           <Details bid={id} summary />
         </div>
       </div>
-      <br />
+      <div className="container-fluid py-4">
+        <div className="row">
+          {Array(6).fill(book).map(b => book && (
+            <div className="col-6 col-sm-4 col-md-2">
+              <BookCard book={book} />
+            </div>
+          ))}
+        </div>
+      </div>
+
       {/*  TODO change to logout button when logged in
       TODO recent reviews*/}
       </div>
