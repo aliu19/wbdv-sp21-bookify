@@ -1,6 +1,8 @@
 import React from "react";
-import songService from "../../services/song-service"
 import {Link, useParams} from "react-router-dom";
+import SongCard from '../song-card'
+import SearchBar from '../search-bar'
+import './search.module.scss'
 
 const Search = () => {
 
@@ -9,16 +11,13 @@ const Search = () => {
   return(
       <div>
         <h1>Search</h1>
-        <input value={track}/>
-        <button className="btn btn-primary"
-                onClick={() => songService.findSongByTitle("4ever")}>
-          Search
-        </button>
+      <SearchBar value={track}/>
         <ul>
           <li>
             <Link to="/details/123">
               Result 1
             </Link>
+            <SongCard song={'result1'}></SongCard>
           </li>
           <li>
             Result 2
