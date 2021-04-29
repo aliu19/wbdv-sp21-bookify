@@ -13,7 +13,10 @@ code {
     monospace;
 }
 
+$enable-gradients: true;
+
 @import "../node_modules/bootstrap/scss/bootstrap";
+
 
 .small-heading {
   font-size: 1.25rem;

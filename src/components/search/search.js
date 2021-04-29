@@ -5,6 +5,7 @@ import BookRow from "../book-row";
 
 const Search = () => {
 
+
   const { searchQuery } = useParams()
   const [results, setResults] = useState({})
   const [searching, setSearching] = useState(true)
@@ -16,6 +17,7 @@ const Search = () => {
     })
 
   }, [searchQuery])
+  console.log(results)
 
   return(
     <div>

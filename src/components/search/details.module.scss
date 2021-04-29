@@ -1,7 +1,22 @@
+@import "../../../node_modules/bootstrap/scss/_functions.scss";
+@import "../../../node_modules/bootstrap/scss/_variables.scss";
+
 .book-description {
     max-width: 70ch;
+    z-index: -2;
+
+    .summary &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-image: linear-gradient(to bottom, transparent 70%, $dark 95%);
+    }
 }
 
 .details h1 {
     font-size: 2rem;
 }
+

@@ -8,6 +8,7 @@ import Register from "./components/login/register";
 import YourProfile from "./components/profile/your-profile";
 import OtherProfile from "./components/profile/other-profile";
 import Header from './components/header'
+import Layout from './components/Layout'
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
       <Route path={["/search/:searchQuery", "/search", "/"]}>
         <Header />
       </Route>
-      <div className="px-3 mt-4">
+      <Layout>
         <Route path={["/"]} exact={true}>
           <Home/>
         </Route>
@@ -37,7 +38,7 @@ function App() {
         <Route path={["/profile/:profileId"]} exact={true}>
           <OtherProfile/>
         </Route>
-      </div>
+      </Layout>
       </BrowserRouter>
   );
 }
