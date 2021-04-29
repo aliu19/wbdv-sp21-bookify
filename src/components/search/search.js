@@ -1,31 +1,37 @@
-import React from "react";
-import songService from "../../services/song-service"
+import React, {useEffect, useState} from "react";
+import bookService from "../../services/book-service"
 import {Link, useParams} from "react-router-dom";
 
 const Search = () => {
 
-  const {track} = useParams()
+  const {title} = useParams()
+  const [results, setResults] = useState({items: []})
+
+  useEffect(() => {
+    if(title) {
+      bookService.findBookByTitle(title)
+      .then(result => setResults(result))
+    }
+  }, [])
 
   return(
       <div>
         <h1>Search</h1>
-        <input value={track}/>
-        <button className="btn btn-primary"
-                onClick={() => songService.findSongByTitle("4ever")}>
+        <input className="form-control" value={title}/>
+        <button className="btn btn-primary btn-block"
+                onClick={() => bookService.findBookByTitle("harry potter")}>
           Search
         </button>
-        <ul>
-          <li>
-            <Link to="/details/123">
-              Result 1
-            </Link>
-          </li>
-          <li>
-            Result 2
-          </li>
-          <li>
-            Result 3
-          </li>
+        <ul className="list-group">
+          {
+            results.items.map(book =>
+                <li className="list-group-item" key={book.id}>
+                  <Link to={`/details/${book.id}`}>
+                    {book.volumeInfo.title}
+                  </Link>
+                </li>
+            )
+          }
         </ul>
       </div>
   )
