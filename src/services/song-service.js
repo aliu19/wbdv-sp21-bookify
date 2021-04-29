@@ -6,8 +6,7 @@ const findSpotifyToken = () => {
 export const findSongByTitle = (title) => {
   return findSpotifyToken()
   .then(token => {
-    console.log(token.toString())
-    return fetch(`https://api.spotify.com/v1/search?q=${title}&type=track`, {
+    return fetch(`https://api.spotify.com/v1/search?q=${title}&type=track&market=US&limit=1`, {
       headers: {
         'Authorization': "Bearer " + token.toString()
       }
