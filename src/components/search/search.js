@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from "react";
 import bookService from "../../services/book-service"
-import {Link, useParams, useHistory} from "react-router-dom";
-import Header from '../header'
+import { Link, useParams } from "react-router-dom";
 
 const Search = () => {
 
@@ -15,7 +14,7 @@ const Search = () => {
   return(
     <div>
       <h1>Search: {searchQuery}</h1>
-        <ul className="list-group">
+      {results.items.length ? (<ul className="list-group">
           {
             results.items.map(book =>
                 <li className="list-group-item" key={book.id}>
@@ -24,8 +23,9 @@ const Search = () => {
                   </Link>
                 </li>
             )
-          }
-        </ul>
+          } 
+      </ul>) :
+        (<div>There were no results for "{searchQuery}"</div>)}
       </div>
   )
 }

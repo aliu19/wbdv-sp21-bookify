@@ -1,10 +1,11 @@
 import { withRouter } from "react-router";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import React, { useState } from "react";
 import styles from './header.module.scss'
 
 
 const Header = ({ match, history, user }) => {
+    console.log(match)
     const { params: { searchQuery } } = match
     const [search, setSearch] = useState(searchQuery || '')
 
@@ -29,10 +30,11 @@ const Header = ({ match, history, user }) => {
                     to="/logout">
                     Logout
                 </Link>
-                    : <Link className="btn btn-primary"
-                        to="/login">
+                    : <NavLink className="btn btn-primary"
+                        to="/login"
+                        activeClassName="btn-dark">
                         Login
-                </Link>}
+                </NavLink>}
             </div>
         </div>
     </nav>)
