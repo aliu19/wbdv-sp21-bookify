@@ -7,6 +7,10 @@ const Home = () => {
         <Link to="/search">
           Search
         </Link>
+        <br/>
+        <Link to="login">
+          Login
+        </Link>
       </div>
   )
 }

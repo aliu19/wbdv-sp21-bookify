@@ -18,7 +18,9 @@ const Details = () => {
 
   return(
       <div>
-        <img src={cover.thumbnail}/>
+        {
+          cover && <img src={cover.small} alt="jpg"/>
+        }
         <h1>{book.title}</h1>
         <h3>By: {book.authors}</h3>
         <h3>Synopsis:</h3>
