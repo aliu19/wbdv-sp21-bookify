@@ -7,14 +7,12 @@ const Details = () => {
   const {bookId} = useParams()
   const [book, setBook] = useState({})
   const [cover, setCover] = useState("")
-  // const [authors, setAuthors] = useState({})
 
   useEffect(() => {
     bookService.findBookById(bookId)
     .then(result => {
       setBook(result.volumeInfo)
       setCover(result.volumeInfo.imageLinks)
-      // setAuthors(result.volumeInfo.authors)
     })
   }, [])
 
