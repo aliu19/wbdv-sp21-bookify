@@ -13,3 +13,9 @@ code {
 }
 
 @import "../node_modules/bootstrap/scss/bootstrap";
+
+.small-heading {
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  font-weight: 700;
+}
