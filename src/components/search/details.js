@@ -27,7 +27,7 @@ const Details = () => {
       </div>
       <div className="col-12 col-md-9">
         <h1>{book.title}</h1>
-        <h3 className="small-heading">By: {book.authors}</h3>
+        <h3 className="small-heading font-italic mt-4 text-secondary">By: {book.authors}</h3>
         <h3 className="small-heading mt-4">Synopsis:</h3>
         <div className={styles["book-description"]}>
           {parse(book.description || "")}

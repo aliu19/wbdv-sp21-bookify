@@ -5,7 +5,6 @@ import styles from './header.module.scss'
 
 
 const Header = ({ match, history, user }) => {
-    console.log(match)
     const { params: { searchQuery } } = match
     const [search, setSearch] = useState(searchQuery || '')
 
@@ -13,7 +12,7 @@ const Header = ({ match, history, user }) => {
 
     return (<nav className="nav navbar">
         <Link to="/" className='navbar-brand'>
-            Vibeify
+            Bookify
         </Link>
         <div className={styles["nav__contents"]}>
             <form className="form-inline"
