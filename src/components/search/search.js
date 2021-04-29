@@ -1,32 +1,20 @@
 import React, {useEffect, useState} from "react";
 import bookService from "../../services/book-service"
 import {Link, useParams, useHistory} from "react-router-dom";
+import Header from '../header'
 
 const Search = () => {
 
-  const {title} = useParams()
-  const [results, setResults] = useState({items: []})
-  const [searchTitle, setSearchTitle] = useState("")
-  const history = useHistory()
+  const { searchQuery } = useParams()
+  const [results, setResults] = useState({ items: [] })
 
   useEffect(() => {
-    setSearchTitle(title)
-    if(title) {
-      bookService.findBookByTitle(title)
-      .then(result => setResults(result))
-    }
-  }, [title])
+    searchQuery && bookService.findBookByTitle(searchQuery).then(result => setResults(result))
+  }, [searchQuery])
 
   return(
-      <div>
-        <h1>Search</h1>
-        <input className="form-control"
-               onChange={(event) => setSearchTitle(event.target.value)}
-               value={searchTitle }/>
-        <button className="btn btn-primary btn-block"
-                onClick={() => history.push(`/search/${searchTitle}`)}>
-          Search
-        </button>
+    <div>
+      <h1>Search: {searchQuery}</h1>
         <ul className="list-group">
           {
             results.items.map(book =>

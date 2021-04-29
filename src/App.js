@@ -4,18 +4,22 @@ import Search from "./components/search/search";
 import Details from "./components/search/details";
 import Home from "./components/home/home";
 import Login from "./components/login/login";
-import Profile from "./components/profile/profile";
 import Register from "./components/login/register";
 import YourProfile from "./components/profile/your-profile";
 import OtherProfile from "./components/profile/other-profile";
+import Header from './components/header'
 
 function App() {
   return (
-      <BrowserRouter>
+    <BrowserRouter>
+      <Route path={["/search/:searchQuery", "/search", "/"]}>
+        <Header />
+      </Route>
+      <div className="px-3">
         <Route path={["/"]} exact={true}>
           <Home/>
         </Route>
-        <Route path={["/search", "/search/:title"]} exact={true}>
+        <Route path={["/search", "/search/:searchQuery"]} exact={true}>
           <Search/>
         </Route>
         <Route path={["/details/:bookId"]} exact={true}>
@@ -33,6 +37,7 @@ function App() {
         <Route path={["/profile/:profileId"]} exact={true}>
           <OtherProfile/>
         </Route>
+      </div>
       </BrowserRouter>
   );
 }
