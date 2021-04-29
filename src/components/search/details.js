@@ -19,16 +19,16 @@ const Details = () => {
   }, [bookId])
 
   return(
-    <div className="d-flex">
-      <div >
+    <div className="row">
+      <div className="col-12 col-md-3">
         {
           cover && <img className="img-fluid" src={cover.small} alt={`Book cover for "${book.title}"`} />
         }
       </div>
-      <div>
+      <div className="col-12 col-md-9">
         <h1>{book.title}</h1>
-        <h3>By: {book.authors}</h3>
-        <h3 className="small-heading">Synopsis:</h3>
+        <h3 className="small-heading">By: {book.authors}</h3>
+        <h3 className="small-heading mt-4">Synopsis:</h3>
         <div className={styles["book-description"]}>
           {parse(book.description || "")}
         </div>

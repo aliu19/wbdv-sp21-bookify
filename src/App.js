@@ -15,7 +15,7 @@ function App() {
       <Route path={["/search/:searchQuery", "/search", "/"]}>
         <Header />
       </Route>
-      <div className="px-3">
+      <div className="px-3 mt-4">
         <Route path={["/"]} exact={true}>
           <Home/>
         </Route>
