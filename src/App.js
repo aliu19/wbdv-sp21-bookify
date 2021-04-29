@@ -7,8 +7,8 @@ import Login from "./components/login/login";
 import Register from "./components/login/register";
 import YourProfile from "./components/profile/your-profile";
 import OtherProfile from "./components/profile/other-profile";
-import Header from './components/header'
-import Layout from './components/Layout'
+import Header from './components/header/header'
+import Layout from './components/Layout/layout'
 
 function App() {
   return (
