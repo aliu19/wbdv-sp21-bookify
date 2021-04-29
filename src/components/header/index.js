@@ -9,21 +9,24 @@ const Header = ({ match, history, user }) => {
     const { params: { searchQuery } } = match
     const [search, setSearch] = useState(searchQuery || '')
 
+    const searchRoute = () => history.push(`/search/${search}`)
+
     return (<nav className="nav navbar">
         <Link to="/" className='navbar-brand'>
             Vibeify
         </Link>
         <div className={styles["nav__contents"]}>
-            <form className="form-inline">
+            <form className="form-inline"
+                onSubmit={searchRoute}>
                 <div className={`mr-2 ${styles["search-bar__wrapper"]}`}>
                     <input className="form-control"
                         onChange={(event) => setSearch(event.target.value)}
                         value={search} />
                 </div>
-                <Link className="btn btn-primary"
-                    to={`/search/${search}`}>
+                <button className="btn btn-primary"
+                    type="submit">
                     Search
-                </Link>
+                </button>
             </form>
             <div>
                 {user ? <Link className="btn btn-primary"
