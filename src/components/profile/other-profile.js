@@ -104,12 +104,6 @@ const OtherProfile = () => {
         </div>
       }
       {
-        currentUser.role !== "ADMIN" &&
-        <div>
-          TODO reviews and booklists
-          </div>
-      }
-      {
         otherUser && otherUser.username &&
         (<div>
           <h2 className="h3">
