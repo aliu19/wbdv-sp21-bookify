@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import { Link, withRouter, useRouteMatch } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 import userService from "../../services/user-service"
 
 const Register = ({ history }) => {
-  const allowAdmin = !!useRouteMatch('/register/admin')
+  // const allowAdmin = !!useRouteMatch('/register/admin')
   const [credentials, setCredentials] = useState({ username: "", password: "", firstName: "", lastName: "", email: "", role: "GENERAL_USER" })
   const register = () => {
     userService.register(credentials)
@@ -56,7 +56,7 @@ const Register = ({ history }) => {
                  onChange={(e) => {setCredentials({...credentials, email: e.target.value})}}
                  value={credentials.email}></input>
         </div>
-        <div className="row mb-4">
+        {/* <div className="row mb-4">
           <label>Role</label>
           <select className="form-control"
             onChange={(e) => { setCredentials({ ...credentials, role: e.target.value }) }}
@@ -66,7 +66,7 @@ const Register = ({ history }) => {
             <option value="GENERAL_USER">General User</option>
             <option value="ADMIN">Admin</option>
           </select>
-        </div>
+        </div> */}
         <div className="row mb-4 justify-content-between">
           <button className="btn btn-primary"
             onClick={register}>

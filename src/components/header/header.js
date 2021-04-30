@@ -1,14 +1,33 @@
 import { withRouter } from "react-router";
 import { Link, NavLink } from "react-router-dom";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from './header.module.scss'
+import userService from "../../services/user-service"
 
+const Header = ({ match, history }) => {
 
-const Header = ({ match, history, user }) => {
     const { params: { searchQuery } } = match
     const [search, setSearch] = useState(searchQuery || '')
+    const [currentUser, setCurrentUser] = useState({})
+
+    useEffect(() => {
+        userService.profile()
+            .then((currentUser) => {
+                console.log(history)
+                setCurrentUser(currentUser)
+                console.log(currentUser)
+            })
+    }, [history, history.location])
 
     const searchRoute = () => history.push(`/search/${search}`)
+
+    const logout = () => {
+        userService.logout()
+            .then(() => {
+                history.push("/")
+                setCurrentUser({})
+            })
+    }
 
     return (<nav className="nav navbar">
         <Link to="/" className='navbar-brand'>
@@ -28,10 +47,10 @@ const Header = ({ match, history, user }) => {
                 </button>
             </form>
             <div>
-                {user ? <Link className="btn btn-primary"
-                    to="/logout">
+                {currentUser && currentUser.username ? <button className="btn btn-primary"
+                    onClick={logout}>
                     Logout
-                </Link>
+                </button>
                     : <NavLink className="btn btn-primary"
                         to="/login"
                         activeClassName="btn-dark">
