@@ -20,7 +20,7 @@ export const deleteBookList = (blid) => {
 }
 
 export const updateBookList = (blid, bookList) => {
-  return fetch(`${BOOKLISTS_URL}/${id}`, {
+  return fetch(`${BOOKLISTS_URL}/${blid}`, {
     method: "PUT",
     credentials: "include",
     body: JSON.stringify(bookList),

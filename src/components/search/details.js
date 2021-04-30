@@ -8,7 +8,7 @@ import reviewService from "../../services/review-service";
 import ReviewList from "../reviews/review-list";
 import ReviewForm from "../reviews/review-form";
 import userService from "../../services/user-service";
-
+import booklistService from '../../services/book-list-service'
 const Details = ({ bid, summary }) => {
 
   const { bookId } = useParams()
@@ -16,7 +16,8 @@ const Details = ({ bid, summary }) => {
   const [book, setBook] = useState({})
   const [cover, setCover] = useState("")
   const [reviews, setReviews] = useState({})
-
+  const [lists, setLists] = useState([])
+  const [currentList, setCurrentList] = useState("")
   const [currentUser, setCurrentUser] = useState({})
 
   useEffect(() => {
@@ -25,6 +26,15 @@ const Details = ({ bid, summary }) => {
         setCurrentUser(user)
       })
   }, [])
+
+  useEffect(() => {
+    userService.getBookLists(currentUser?._id)
+      .then(l => {
+        setLists(l)
+        console.log(l)
+        setCurrentList(l.length ? l[0]._id : '')
+      })
+  }, [currentUser])
 
   useEffect(() => {
     bookService.findBookById(bookNo)
@@ -42,6 +52,13 @@ const Details = ({ bid, summary }) => {
       })
   }, [bookNo])
 
+  const addToList = () => {
+    const list = lists.find(l => l._id === currentList)
+    console.log()
+    booklistService.updateBookList(currentList,
+      { ...list, books: list.books ? list.books.concat(bookId) : [bookId] })
+  }
+
 
   if (!book) {
     return null;
@@ -50,6 +67,7 @@ const Details = ({ bid, summary }) => {
   if (book.error) {
     return (<div>We're having trouble finding this book</div>)
   }
+  console.log(currentList)
 
   return(
     <div className={`${styles["details"]} row`}>
@@ -83,13 +101,27 @@ const Details = ({ bid, summary }) => {
               </div>
             </div>
           </Fragment>)}
-        {!summary && (<div>
+        {!summary && currentUser && currentUser._id && (<div>
+          <h3 className="small-heading mt-4">Add this book to your lists:</h3>
+          <div>
+            <select
+              className="form-control d-inline"
+              value={currentList._id}
+              onChange={e => setCurrentList(e.target.value)}>
+              {lists.map(l =>
+                <option value={l._id}>{l.name}</option>
+              )}
+            </select>
+            <button className="btn btn-primary" onClick={addToList}>Add to list</button>
+          </div>
           <h3 className="small-heading mt-4">Reviews</h3>
           {currentUser && currentUser._id && <ReviewForm userId={currentUser._id} />}
           {reviews.length ? <ReviewList reviews={reviews} currentUser={currentUser} /> :
             <div>Be the first to leave a review!</div>
-          }
-        </div>)}
+        }
+        </div>)
+        }
+
       </div>
 </div>
   )

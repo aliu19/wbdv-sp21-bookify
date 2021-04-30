@@ -1,5 +1,5 @@
 const GOOGLE_URL = "https://www.googleapis.com/books/v1"
-const API_KEY = "AIzaSyA0hsK43IqkfnPDbXhq3p2izqDIp2onrHQ"
+const API_KEY = "AIzaSyB8VPa-s7uzeEYBPVLi2yQ_4EQOh9YR-d4"
 
 export const findBookByTitle = (title) => {
   return fetch(`${GOOGLE_URL}/volumes?q=${title}&key=${API_KEY}`)

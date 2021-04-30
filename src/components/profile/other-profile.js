@@ -113,7 +113,7 @@ const OtherProfile = () => {
           <h2 className="h3">
             Booklists by {otherUser && otherUser.username}
           </h2>
-          {!!bookLists.length ? bookLists.map(b => <BookList bookList={b} key={b.name} />) : <div>No booklists here!</div>}
+          {!!bookLists.length ? bookLists.map(b => <BookList currentUser={currentUser} bookList={b} key={b.name} />) : <div>No booklists here!</div>}
         </div >)
       }
 

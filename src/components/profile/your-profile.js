@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import bookListService from '../../services/book-list-service'
 import reviewService from '../../services/review-service'
 import userService from "../../services/user-service"
 import BookList from '../book-list'
@@ -9,6 +10,7 @@ const YourProfile = () => {
   const [currentUser, setCurrentUser] = useState({})
   const [reviews, setReviews] = useState({})
   const [bookLists, setBookLists] = useState({})
+  const [newListName, setNewListName] = useState('')
 
   const updateUser = () => {
     userService.updateUser(currentUser._id, currentUser)
@@ -28,9 +30,20 @@ const YourProfile = () => {
     currentUser._id && reviewService.findReviewsForUser(currentUser._id).then(res => setReviews(res))
   }, [currentUser])
 
-  useEffect(() => {
+  const getBookLists = () => {
     currentUser._id && userService.getBookLists(currentUser._id).then(res => setBookLists(res))
+  }
+
+
+  useEffect(() => {
+    getBookLists()
   }, [currentUser])
+
+  const createBooklist = () => {
+    console.log()
+    bookListService.createBookList({ name: newListName, books: [], userId: currentUser?._id })
+    getBookLists()
+  }
 
   return (
     <div>
@@ -98,7 +111,16 @@ const YourProfile = () => {
           <h2 className="h3">
             Booklists by {currentUser && currentUser.username}
           </h2>
-          {!!bookLists.length ? bookLists.map(b => <BookList bookList={b} key={b.name} />) : <div>No booklists here!</div>}
+          {!!bookLists.length ? bookLists.map(b => <BookList currentUser={currentUser} bookList={b} key={b.name} />) : <div>No booklists here!</div>}
+          <form className="form-inline mt-2">
+            <input className="form-control mr-2"
+              value={newListName}
+              onChange={e => setNewListName(e.target.value)}
+              placeholder="Booklist name"></input>
+            <button className="btn btn-primary"
+              onClick={createBooklist}
+            >Add a booklist +</button>
+          </form>
         </div >)
       }
       {/*
