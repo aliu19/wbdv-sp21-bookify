@@ -1,11 +1,13 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
-const Review = () => {
+const Review = ({ review }) => {
   return (
-      <div>
-        <h1>
-          Review List
-        </h1>
+    <div>
+      <Link to={`/profile/${review.userId}`}>
+        <strong>{review.user.username}</strong>
+      </Link>
+      <p className="mb-0">{review.review}</p>
       </div>
   )
 }

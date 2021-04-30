@@ -13,9 +13,7 @@ const Header = ({ match, history }) => {
     useEffect(() => {
         userService.profile()
             .then((currentUser) => {
-                console.log(history)
                 setCurrentUser(currentUser)
-                console.log(currentUser)
             })
     }, [history, history.location])
 

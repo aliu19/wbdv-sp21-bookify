@@ -4,6 +4,10 @@ import bookService from '../../services/book-service'
 import parse from "html-react-parser"
 import styles from './details.module.scss'
 import { Fragment } from "react";
+import reviewService from "../../services/review-service";
+import ReviewList from "../reviews/review-list";
+import ReviewForm from "../reviews/review-form";
+import userService from "../../services/user-service";
 
 const Details = ({ bid, summary }) => {
 
@@ -11,6 +15,17 @@ const Details = ({ bid, summary }) => {
   const bookNo = bid || bookId
   const [book, setBook] = useState({})
   const [cover, setCover] = useState("")
+  const [reviews, setReviews] = useState({})
+
+  const [currentUser, setCurrentUser] = useState({})
+
+  useEffect(() => {
+    userService.profile()
+      .then(user => {
+        console.log(user)
+        setCurrentUser(user)
+      })
+  }, [])
 
   useEffect(() => {
     bookService.findBookById(bookNo)
@@ -21,7 +36,11 @@ const Details = ({ bid, summary }) => {
         } else {
           !result.volumeInfo && setBook(result)
         }
-    })
+      })
+    reviewService.findReviewsForBook(bookNo)
+      .then(result => {
+        setReviews(result)
+      })
   }, [bookNo])
 
 
@@ -44,7 +63,7 @@ const Details = ({ bid, summary }) => {
       </div>
       <div className={`col-12 col-md-9 ${summary &&  styles['summary'] + ' overflow-hidden position-relative'}`}>
         <h1>{book.title}</h1>
-        <h3 className="small-heading font-italic mt-4 text-secondary">By: {book.authors || 'Unknown'}</h3>
+        <h3 className={`small-heading font-italic mt-4 ${summary ? 'text-light' : 'text-primary'}`}>By: {book.authors || 'Unknown'}</h3>
         {summary && (<div className=" position-relative">
             <Link className="btn btn-primary mt-2" to={`/details/${bookNo}`}>Learn more</Link>
           </div>)}
@@ -67,9 +86,13 @@ const Details = ({ bid, summary }) => {
               </div>
             </div>
           </Fragment>)}
+        {!summary && (<div>
+          <h3 className="small-heading mt-4">Reviews</h3>
+          {currentUser && currentUser._id && <ReviewForm userId={currentUser._id} />}
+          <ReviewList reviews={reviews} />
+        </div>)}
       </div>
-      {/*  TODO render reviews for the book, must log in the make a review but can see others*/}
-      </div>
+</div>
   )
 }
 export default Details

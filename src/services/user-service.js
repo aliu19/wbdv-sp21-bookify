@@ -36,9 +36,13 @@ const logout = () => {
   }).then(() => {})
 }
 
+const getUserById = id =>
+  fetch(`${USERS_URL}/users/${id}`).then(res => res.json())
+
 export default {
   register,
   profile,
   login,
-  logout
+  logout,
+  getUserById
 }
