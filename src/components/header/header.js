@@ -1,6 +1,6 @@
 import { withRouter } from "react-router";
 import { Link, NavLink } from "react-router-dom";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 import styles from './header.module.scss'
 import userService from "../../services/user-service"
 
@@ -47,10 +47,17 @@ const Header = ({ match, history }) => {
                 </button>
             </form>
             <div>
-                {currentUser && currentUser.username ? <button className="btn btn-primary"
+                {currentUser && currentUser.username ? <Fragment>
+                    <NavLink className="btn btn-primary mr-2"
+                        to="/profile"
+                        activeClassName="btn-dark">
+                        Profile
+                </NavLink>
+                    <button className="btn btn-primary"
                     onClick={logout}>
-                    Logout
+                        Logout
                 </button>
+                </Fragment>
                     : <NavLink className="btn btn-primary"
                         to="/login"
                         activeClassName="btn-dark">
