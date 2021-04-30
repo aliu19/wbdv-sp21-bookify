@@ -3,10 +3,10 @@ import userService from "../../services/user-service";
 import {useParams} from "react-router";
 import reviewService from '../../services/review-service';
 import ReviewList from '../reviews/review-list';
-import BookList from '../book-list';
+// import BookList from '../book-list';
 
 const OtherProfile = () => {
-  
+
   const {profileId} = useParams()
   const [currentUser, setCurrentUser] = useState({})
   const [otherUser, setOtherUser] = useState({})
@@ -19,7 +19,7 @@ const OtherProfile = () => {
       setCurrentUser(currentUser)
     })
   }, [])
-  
+
   useEffect(() => {
     userService.getUserById(profileId)
     .then((user) => {
@@ -29,13 +29,11 @@ const OtherProfile = () => {
 
   useEffect(() => {
     otherUser._id && reviewService.findReviewsForUser(otherUser._id).then(res => setReviews(res))
-  }, [user])
+  }, [otherUser])
 
   // useEffect(() => {
   //   user._id && userService.getBookLists(user._id).then(res => setBookLists(res))
   // }, [user])
-
-const OtherProfile = () => {
 
   const updateUser = () => {
     userService.updateUser(otherUser._id, otherUser)
@@ -43,17 +41,6 @@ const OtherProfile = () => {
       setOtherUser(updatedUser)
     })
   }
-
-  useEffect(() => {
-    userService.profile()
-    .then((currentUser) => {
-      setCurrentUser(currentUser)
-    })
-    userService.getUserById(profileId)
-    .then((user) => {
-      setOtherUser(user)
-    })
-  }, [])
 
   return (
       <div>
@@ -119,16 +106,16 @@ const OtherProfile = () => {
         }
         {
           currentUser.role !== "ADMIN" &&
-          user && user.username &&
+          otherUser && otherUser.username &&
           (<div>
             <h2 className="h3">
-              Reviews by {user && user.username}
+              Reviews by {otherUser && otherUser.username}
             </h2>
             <ReviewList reviews={reviews} />
             <h2 className="h3">
-              Booklists by {user && user.username}
+              Booklists by {otherUser && otherUser.username}
             </h2>
-            {!!bookLists.length && bookLists.map(b => <BookList bookList={b} />)}
+            {/*{!!bookLists.length && bookLists.map(b => <BookList bookList={b} />)}*/}
           </div>)
         }
            
