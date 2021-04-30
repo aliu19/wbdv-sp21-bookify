@@ -22,7 +22,6 @@ const Details = ({ bid, summary }) => {
   useEffect(() => {
     userService.profile()
       .then(user => {
-        console.log(user)
         setCurrentUser(user)
       })
   }, [])
@@ -72,8 +71,8 @@ const Details = ({ bid, summary }) => {
           <div className="d-none d-md-block">
             <h3 className="small-heading mt-4">Synopsis:</h3>
             <div className={styles["book-description"]}>
-              <div className={`${summary && 'position-absolute'} `}>
-                {summary ? parse((book?.description || "")) : parse(book.description || "")}
+              <div className={`${summary && 'position-absolute pr-4'} `}>
+                {parse(book.description || "")}
               </div>
             </div>
           </div>
@@ -81,15 +80,17 @@ const Details = ({ bid, summary }) => {
           (<Fragment>
             <h3 className="small-heading mt-4">Synopsis:</h3>
             <div className={styles["book-description"]}>
-              <div className={`${summary && 'position-absolute'} `}>
-                {summary ? parse((book?.description || "")) : parse(book.description || "")}
+              <div>
+                {parse((book?.description || ""))}
               </div>
             </div>
           </Fragment>)}
         {!summary && (<div>
           <h3 className="small-heading mt-4">Reviews</h3>
           {currentUser && currentUser._id && <ReviewForm userId={currentUser._id} />}
-          <ReviewList reviews={reviews} />
+          {reviews.length ? <ReviewList reviews={reviews} /> :
+            <div>Be the first to leave a review!</div>
+          }
         </div>)}
       </div>
 </div>

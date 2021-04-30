@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import bookService from "../../services/book-service"
 import { Link, useParams } from "react-router-dom";
-import BookRow from "../book-row/book-row";
+import BookRow from "../book-row";
 
 const Search = () => {
 
@@ -17,7 +17,6 @@ const Search = () => {
     })
 
   }, [searchQuery])
-  console.log(results)
 
   return(
     <div>

@@ -3,7 +3,7 @@ import userService from "../../services/user-service";
 import { useParams } from "react-router";
 import reviewService from '../../services/review-service';
 import ReviewList from '../reviews/review-list';
-// import BookList from '../book-list';
+import BookList from '../book-list';
 
 const OtherProfile = () => {
 
@@ -31,9 +31,9 @@ const OtherProfile = () => {
     otherUser._id && reviewService.findReviewsForUser(otherUser._id).then(res => setReviews(res))
   }, [otherUser])
 
-  // useEffect(() => {
-  //   user._id && userService.getBookLists(user._id).then(res => setBookLists(res))
-  // }, [user])
+  useEffect(() => {
+    otherUser._id && userService.getBookLists(otherUser._id).then(res => setBookLists(res))
+  }, [otherUser])
 
   const updateUser = () => {
     userService.updateUser(otherUser._id, otherUser)
@@ -104,6 +104,12 @@ const OtherProfile = () => {
         </div>
       }
       {
+        currentUser.role !== "ADMIN" &&
+        <div>
+          TODO reviews and booklists
+          </div>
+      }
+      {
         otherUser && otherUser.username &&
         (<div>
           <h2 className="h3">
@@ -113,15 +119,15 @@ const OtherProfile = () => {
           <h2 className="h3">
             Booklists by {otherUser && otherUser.username}
           </h2>
-          {/*{!!bookLists.length && bookLists.map(b => <BookList bookList={b} />)}*/}
-        </div>)
+          {!!bookLists.length && bookLists.map(b => <BookList bookList={b} key={b.name} />)}
+        </div >)
       }
 
       {/* {JSON.stringify(user)} */}
       {/* {JSON.stringify(bookLists)} */}
       {/* {JSON.stringify(reviews)} */}
       {/*  TODO GetUser*/}
-    </div>
+    </div >
   )
 }
 

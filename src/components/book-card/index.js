@@ -10,7 +10,7 @@ const BookCard = ({ book }) => {
                             alt={`Book cover for ${book.volumeInfo.title}`} /> :
                         <div className="w-100"></div>}
                 </div>
-            <div className="">{book.volumeInfo.title}</div>
+            <div className="">{book?.volumeInfo?.title}</div>
         </Link >
     )
 }
