@@ -8,7 +8,7 @@ export const findReviewsForBook = async (title) => {
     const reviews = await fetch(`${REVIEWS_URL}/books/${title}/reviews`)
         .then(response => response.json())
     const users = await Promise.all(reviews.map(u => userService.getUserById(u.userId)))
-    const books = await Promise.all(reviews.map(u => bookService.getBookById(u.bookId)))
+    const books = await Promise.all(reviews.map(u => bookService.findBookById(u.bookId)))
     const result = await reviews.map((r, i) => ({ ...r, user: users[i], book: books[i] }))
     return result
 }
