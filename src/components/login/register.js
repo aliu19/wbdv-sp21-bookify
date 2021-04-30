@@ -56,17 +56,6 @@ const Register = ({ history }) => {
                  onChange={(e) => {setCredentials({...credentials, email: e.target.value})}}
                  value={credentials.email}></input>
         </div>
-        {/* <div className="row mb-4">
-          <label>Role</label>
-          <select className="form-control"
-            onChange={(e) => { setCredentials({ ...credentials, role: e.target.value }) }}
-            value={credentials.role}
-            disabled={!allowAdmin && "disabled"}>
-            <option value="none" className="selected disabled hidden" />
-            <option value="GENERAL_USER">General User</option>
-            <option value="ADMIN">Admin</option>
-          </select>
-        </div> */}
         <div className="row mb-4 justify-content-between">
           <button className="btn btn-primary"
             onClick={register}>

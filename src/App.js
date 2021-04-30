@@ -14,29 +14,29 @@ function App() {
   return (
     <BrowserRouter>
       <Route path={["/search/:searchQuery", "/search", "/"]}>
-        <Header />
+        <Header/>
       </Route>
       <Layout>
         <Route path={["/"]} exact={true}>
-          <Home />
+          <Home/>
         </Route>
         <Route path={["/search", "/search/:searchQuery"]} exact={true}>
-          <Search />
+          <Search/>
         </Route>
         <Route path={["/details/:bookId"]} exact={true}>
-          <Details />
+          <Details/>
         </Route>
         <Route path={"/login"} exact={true}>
-          <Login />
+          <Login/>
         </Route>
         <Route path={["/register", "/register/admin"]} exact={true}>
-          <Register />
+          <Register/>
         </Route>
         <Route path={["/profile"]} exact={true}>
-          <YourProfile />
+          <YourProfile/>
         </Route>
         <Route path={["/profile/:profileId"]} exact={true}>
-          <OtherProfile />
+          <OtherProfile/>
         </Route>
       </Layout>
     </BrowserRouter>

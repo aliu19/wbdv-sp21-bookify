@@ -1,11 +1,9 @@
 import React, {useEffect, useState} from 'react'
-import {Link, useHistory} from 'react-router-dom'
 import userService from "../../services/user-service"
 
 const YourProfile = () => {
 
   const [currentUser, setCurrentUser] = useState({})
-  const history = useHistory()
   const updateUser = () => {
     userService.updateUser(currentUser._id, currentUser)
     .then((updatedUser) => {
@@ -36,7 +34,6 @@ const YourProfile = () => {
           <div className="row mb-2">
             <label>Password</label>
             <input className="form-control"
-                   // type="password"
                    onChange={(e) => {setCurrentUser({...currentUser, password: e.target.value})}}
                    value={currentUser.password}></input>
           </div>
@@ -65,7 +62,6 @@ const YourProfile = () => {
             onChange={(e) => { setCurrentUser({ ...currentUser, role: e.target.value }) }}
             value={currentUser.role}
             disabled="disabled">
-            {/*<option value="none" className="selected disabled hidden" />*/}
             <option value="GENERAL_USER">General User</option>
             <option value="ADMIN">Admin</option>
           </select>
@@ -77,8 +73,6 @@ const YourProfile = () => {
             </button>
           </div>
         </form>
-
-        {JSON.stringify(currentUser)}
 
       {/*
       TODO UpdateUser, DeleteUser
