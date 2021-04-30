@@ -13,9 +13,12 @@ export const findReviewsForBook = async (title) => {
     return result
 }
 
-export const findReviewsForUser = (uid) => {
-    return fetch(`${REVIEWS_URL}/users/${uid}/reviews`)
+export const findReviewsForUser = async (uid) => {
+    const reviews = await fetch(`${REVIEWS_URL}/users/${uid}/reviews`)
         .then(response => response.json())
+    const books = await Promise.all(reviews.map(u => bookService.findBookById(u.bookId)))
+    const result = await reviews.map((r, i) => ({ ...r, book: books[i] }))
+    return result
 }
 
 export const findAllReviews = () => {

@@ -10,9 +10,6 @@ const ReviewList = ({ reviews }) => {
           <Review review={r} />
         </li>
       )}
-      {!reviews.length &&
-        <div>Be the first to leave a review!</div>
-      }
     </ul>
   )
 }

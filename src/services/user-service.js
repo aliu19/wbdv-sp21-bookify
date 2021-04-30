@@ -33,7 +33,17 @@ const logout = () => {
   return fetch(`${USERS_URL}/logout`, {
     method: "POST",
     credentials: "include"
-  }).then(() => {})
+  }).then(() => { })
+}
+
+const getBookLists = (uid) => {
+  return fetch(`${USERS_URL}/users/${uid}/booklists`, {
+    method: "GET",
+    credentials: "include",
+    headers: {
+      'content-type': 'application/json'
+    }
+  }).then(response => response.json())
 }
 
 const getUserById = id =>
@@ -47,7 +57,7 @@ const updateUser = (uid, user) => {
       'content-type': 'application/json'
     }
   })
-  .then(response => response.json())
+    .then(response => response.json())
 }
 
 export default {
@@ -56,5 +66,6 @@ export default {
   login,
   logout,
   getUserById,
-  updateUser
+  updateUser,
+  getBookLists
 }

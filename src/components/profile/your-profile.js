@@ -64,7 +64,7 @@ const YourProfile = () => {
           <select className="form-control"
             onChange={(e) => { setCurrentUser({ ...currentUser, role: e.target.value }) }}
             value={currentUser.role}
-            disabled={currentUser.role !== "ADMIN" && "disabled"}>
+            disabled="disabled">
             {/*<option value="none" className="selected disabled hidden" />*/}
             <option value="GENERAL_USER">General User</option>
             <option value="ADMIN">Admin</option>
