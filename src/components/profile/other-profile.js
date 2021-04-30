@@ -1,12 +1,99 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
+import userService from "../../services/user-service";
+import {useParams} from "react-router";
 
 const OtherProfile = () => {
+
+  const {profileId} = useParams()
+  const [currentUser, setCurrentUser] = useState({})
+  const [otherUser, setOtherUser] = useState({})
+
+  const updateUser = () => {
+    userService.updateUser(otherUser._id, otherUser)
+    .then((updatedUser) => {
+      setOtherUser(updatedUser)
+    })
+  }
+
+  useEffect(() => {
+    userService.profile()
+    .then((currentUser) => {
+      setCurrentUser(currentUser)
+    })
+    userService.getUserById(profileId)
+    .then((user) => {
+      setOtherUser(user)
+    })
+  }, [])
+
   return (
       <div>
         <h1>
-          Other Profile
+          {otherUser.username}
         </h1>
-      {/*  TODO GetUser*/}
+        {
+          currentUser.role === "ADMIN" &&
+          <div>
+            <form className="container-fluid">
+              <div className="row mb-2">
+                <label>Username</label>
+                <input className="form-control"
+                       onChange={(e) => {setOtherUser({...otherUser, username: e.target.value})}}
+                       value={otherUser.username}></input>
+              </div>
+              <div className="row mb-2">
+                <label>Password</label>
+                <input className="form-control"
+                       type="password"
+                       onChange={(e) => {setOtherUser({...otherUser, password: e.target.value})}}
+                       value={otherUser.password}></input>
+              </div>
+              <div className="row mb-2">
+                <label>First name</label>
+                <input className="form-control"
+                       onChange={(e) => {setOtherUser({...otherUser, firstName: e.target.value})}}
+                       value={otherUser.firstName}></input>
+              </div>
+              <div className="row mb-2">
+                <label>Last name</label>
+                <input className="form-control"
+                       onChange={(e) => {setOtherUser({...otherUser, lastName: e.target.value})}}
+                       value={otherUser.lastName}></input>
+              </div>
+              <div className="row mb-2">
+                <label>Email</label>
+                <input className="form-control"
+                       type="email"
+                       onChange={(e) => {setOtherUser({...otherUser, email: e.target.value})}}
+                       value={otherUser.email}></input>
+              </div>
+              <div className="row mb-4">
+                <label>Role</label>
+                <select className="form-control"
+                        onChange={(e) => { setOtherUser({ ...otherUser, role: e.target.value }) }}
+                        value={otherUser.role}
+                        disabled={otherUser.role === "ADMIN" && "disabled"}>
+                  <option value="none" className="selected disabled hidden"/>
+                  <option value="GENERAL_USER">General User</option>
+                  <option value="ADMIN">Admin</option>
+                </select>
+              </div>
+              <div className="row mb-4 justify-content-between">
+                <button className="btn btn-primary"
+                        onClick={updateUser}>
+                  Update
+                </button>
+              </div>
+              {JSON.stringify(otherUser)}
+            </form>
+          </div>
+        }
+        {
+          currentUser.role !== "ADMIN" &&
+          <div>
+            TODO reviews and booklists
+          </div>
+        }
       </div>
   )
 }

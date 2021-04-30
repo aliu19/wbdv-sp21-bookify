@@ -42,6 +42,7 @@ const getUserById = id =>
 const updateUser = (uid, user) => {
   return fetch(`${USERS_URL}/api/users/${uid}`, {
     method: "PUT",
+    credentials: "include",
     body: JSON.stringify(user),
     headers: {
       'content-type': 'application/json'
