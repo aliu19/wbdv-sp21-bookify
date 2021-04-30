@@ -28,13 +28,13 @@ const Login = () => {
           <label>Username</label>
           <input className="form-control"
                  onChange={(e) => {setCredentials({...credentials, username: e.target.value})}}
-                 value={credentials.username}></input>
+                 placeholder="username"></input>
         </div>
         <div className="row mb-4">
           <label>Password</label>
           <input className="form-control"
                  onChange={(e) => {setCredentials({...credentials, password: e.target.value})}}
-                 value={credentials.password}></input>
+                 placeholder="password"></input>
         </div>
         <div className="row mb-4">
           <button className="btn btn-primary"

@@ -1,4 +1,4 @@
-const USERS_URL = "http://localhost:4000/api/users"
+const USERS_URL = "http://localhost:4000/api"
 
 const register = (credentials) => {
   return fetch(`${USERS_URL}/register`, {
