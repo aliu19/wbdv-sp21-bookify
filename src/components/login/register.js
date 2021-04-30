@@ -1,7 +1,21 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, {useState, useEffect} from 'react'
+import {Link, useHistory} from 'react-router-dom'
+import userService from "../../services/user-service"
 
 const Register = () => {
+  const [credentials, setCredentials] = useState({username: "", password: "", firstName: "", lastName: "", email: "", role: "GENERAL_USER"})
+  const history = useHistory()
+  const register = () => {
+    userService.register(credentials)
+      .then((user) => {
+        if(user === 0) {
+          alert("The username is already taken. Please choose another one.")
+        } else {
+          history.push("/profile")
+        }
+      })
+  }
+
   return (
     <div className="container-fluid">
       <div className="row">
@@ -9,43 +23,56 @@ const Register = () => {
           Register
         </h1>
       </div>
-      <form
-        onSubmit={() => { }}>
+      <form>
         <div className="row mb-2">
-          <label htmlFor="username">Username</label>
-          <input id="username" className="form-control"></input>
-        </div>
-        <div className="row mb-2">
-          <label htmlFor="password">Password</label>
-          <input type="password" id="password" className="form-control"></input>
+          <label>Username</label>
+          <input className="form-control"
+                 onChange={(e) => {setCredentials({...credentials, username: e.target.value})}}
+                 value={credentials.username}></input>
         </div>
         <div className="row mb-2">
-          <label htmlFor="firstName">First name</label>
-          <input id="firstName" className="form-control"></input>
+          <label>Password</label>
+          <input className="form-control"
+                 onChange={(e) => {setCredentials({...credentials, password: e.target.value})}}
+                 value={credentials.password}></input>
+        </div>
+        <div className="row mb-2">
+          <label>First name</label>
+          <input className="form-control"
+                 onChange={(e) => {setCredentials({...credentials, firstName: e.target.value})}}
+                 value={credentials.firstName}></input>
         </div>
         <div className="row mb-4">
-          <label htmlFor="lastName">Last name</label>
-          <input id="lastName" className="form-control"></input>
+          <label>Last name</label>
+          <input className="form-control"
+                 onChange={(e) => {setCredentials({...credentials, lastName: e.target.value})}}
+                 value={credentials.lastName}></input>
         </div>
         <div className="row mb-4">
-          <label htmlFor="email">Email</label>
-          <input id="email" type="email" className="form-control"></input>
+          <label>Email</label>
+          <input className="form-control"
+                 onChange={(e) => {setCredentials({...credentials, email: e.target.value})}}
+                 value={credentials.email}></input>
         </div>
+        {/*TODO for admin to change in people's profiles*/}
+        {/*<div className="row mb-4">*/}
+        {/*  <label>Role</label>*/}
+        {/*  <select className="form-control"*/}
+        {/*          onChange={(e) => {setCredentials({...credentials, role: e.target.value})}}*/}
+        {/*          value={credentials.role}>*/}
+        {/*    <option value="none" className="selected disabled hidden"/>*/}
+        {/*    <option value="GENERAL_USER">General User</option>*/}
+        {/*    <option value="ADMIN">Admin</option>*/}
+        {/*  </select>*/}
+        {/*</div>*/}
         <div className="row mb-4">
-          <label htmlFor="roleFld">Role</label>
-          <select className="form-control" id="roleFld">
-            <option value="GENERAL_USER">General User</option>
-            <option value="ADMIN">Admin</option>
-          </select>
-        </div>
-        <div className="row mb-4">
-          <button className="btn btn-primary" type="submit">Register</button>
+          <button className="btn btn-primary"
+                  onClick={register}>
+            Register
+          </button>
           <Link className="btn btn-link" to="/login">Login</Link>
         </div>
       </form>
-      {/*  TODO CreateUser
-      TODO username, password, first name, last name, email, role
-      TODO link to login*/}
     </div>
 
   )

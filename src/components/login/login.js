@@ -1,7 +1,12 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import {Link, useHistory} from 'react-router-dom'
 
 const Login = () => {
+  const history = useHistory()
+  const login = () => {
+    history.push("/profile")
+  }
+
   return (
     <div className="container-fluid">
       <div className="row">
@@ -9,8 +14,7 @@ const Login = () => {
           Login
         </h1>
       </div>
-      <form
-        onSubmit={() => { }}>
+      <form>
         <div className="row mb-2">
           <label htmlFor="username">Username</label>
           <input id="username" className="form-control"></input>
@@ -20,8 +24,12 @@ const Login = () => {
           <input type="password" id="password" className="form-control"></input>
         </div>
         <div className="row mb-4">
-          <button className="btn btn-primary" type="submit">Login</button>
-          <Link className="btn btn-link" to="/register">Register</Link>
+          <button className="btn btn-primary"
+                  type="submit"
+                  onClick={login}>
+            Login
+          </button>
+          <Link className="btn btn-link float-right" to="/register">Register</Link>
         </div>
       </form>
       {/*  TODO GetUser

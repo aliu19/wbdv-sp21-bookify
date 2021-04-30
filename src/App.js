@@ -14,7 +14,7 @@ function App() {
   return (
     <BrowserRouter>
       <Route path={["/search/:searchQuery", "/search", "/"]}>
-        <Header />
+        <Header/>
       </Route>
       <Layout>
         <Route path={["/"]} exact={true}>
@@ -26,10 +26,10 @@ function App() {
         <Route path={["/details/:bookId"]} exact={true}>
           <Details/>
         </Route>
-        <Route path={["/login"]} exact={true}>
+        <Route path={"/login"} exact={true}>
           <Login/>
         </Route>
-        <Route path={["/register"]} exact={true}>
+        <Route path={"/register"} exact={true}>
           <Register/>
         </Route>
         <Route path={["/profile"]} exact={true}>
