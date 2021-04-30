@@ -2,7 +2,7 @@ import userService from "./user-service"
 import bookService from "./book-service"
 
 
-const REVIEWS_URL = "http://localhost:4000/api"
+const REVIEWS_URL = "https://lit-woodland-33518.herokuapp.com/api"
 
 export const findReviewsForBook = async (title) => {
     const reviews = await fetch(`${REVIEWS_URL}/books/${title}/reviews`)

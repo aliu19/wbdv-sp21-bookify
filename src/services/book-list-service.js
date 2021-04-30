@@ -1,4 +1,4 @@
-const BOOKLISTS_URL = "http://localhost:4000/api/booklists"
+const BOOKLISTS_URL = "https://lit-woodland-33518.herokuapp.com/api/booklists"
 
 export const createBookList = (bookList) => {
   return fetch(`${BOOKLISTS_URL}`, {

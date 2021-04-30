@@ -1,4 +1,4 @@
-const USERS_URL = "http://localhost:4000/api"
+const USERS_URL = "https://lit-woodland-33518.herokuapp.com/api"
 
 const register = (credentials) => {
   return fetch(`${USERS_URL}/register`, {
