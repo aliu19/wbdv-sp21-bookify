@@ -1,10 +1,19 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {Link, useHistory} from 'react-router-dom'
+import userService from "../../services/user-service"
 
 const Login = () => {
+  const [credentials, setCredentials] = useState({})
   const history = useHistory()
   const login = () => {
-    history.push("/profile")
+    userService.login(credentials)
+      .then((user) => {
+        if(user === 0) {
+          alert("Wrong username or password. Please try again.")
+        } else {
+          history.push("/profile")
+        }
+      })
   }
 
   return (
@@ -16,16 +25,19 @@ const Login = () => {
       </div>
       <form>
         <div className="row mb-2">
-          <label htmlFor="username">Username</label>
-          <input id="username" className="form-control"></input>
+          <label>Username</label>
+          <input className="form-control"
+                 onChange={(e) => {setCredentials({...credentials, username: e.target.value})}}
+                 value={credentials.username}></input>
         </div>
         <div className="row mb-4">
-          <label htmlFor="password">Password</label>
-          <input type="password" id="password" className="form-control"></input>
+          <label>Password</label>
+          <input className="form-control"
+                 onChange={(e) => {setCredentials({...credentials, password: e.target.value})}}
+                 value={credentials.password}></input>
         </div>
         <div className="row mb-4">
           <button className="btn btn-primary"
-                  type="submit"
                   onClick={login}>
             Login
           </button>

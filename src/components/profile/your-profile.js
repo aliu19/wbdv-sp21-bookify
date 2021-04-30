@@ -6,7 +6,10 @@ const YourProfile = () => {
 
   const history = useHistory()
   const logout = () => {
-    history.push("/")
+    userService.logout()
+    .then(() => {
+      history.push("/")
+    })
   }
 
   const [currentUser, setCurrentUser] = useState({})
@@ -23,6 +26,8 @@ const YourProfile = () => {
         <h1>
           Welcome {currentUser && currentUser.username}
         </h1>
+
+        {JSON.stringify(currentUser)}
 
         <button className="btn btn-primary"
                 onClick={logout}>
