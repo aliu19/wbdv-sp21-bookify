@@ -1,17 +1,16 @@
 import React, {useState} from 'react'
-import {Link, useHistory} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import userService from "../../services/user-service"
 
 const Login = () => {
-  const [credentials, setCredentials] = useState({})
-  const history = useHistory()
+  const [credentials, setCredentials] = useState({username: "", password: ""})
   const login = () => {
     userService.login(credentials)
       .then((user) => {
         if(user === 0) {
           alert("Wrong username or password. Please try again.")
         } else {
-          history.push("/profile")
+          window.location.href("/profile")
         }
       })
   }
