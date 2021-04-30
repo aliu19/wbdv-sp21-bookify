@@ -47,8 +47,6 @@ const Details = ({ bid, summary }) => {
     return null;
   }
 
-  // console.log(book)
-
   if (book.error) {
     return (<div>We're having trouble finding this book</div>)
   }
@@ -88,7 +86,7 @@ const Details = ({ bid, summary }) => {
         {!summary && (<div>
           <h3 className="small-heading mt-4">Reviews</h3>
           {currentUser && currentUser._id && <ReviewForm userId={currentUser._id} />}
-          {reviews.length ? <ReviewList reviews={reviews} /> :
+          {reviews.length ? <ReviewList reviews={reviews} currentUser={currentUser} /> :
             <div>Be the first to leave a review!</div>
           }
         </div>)}

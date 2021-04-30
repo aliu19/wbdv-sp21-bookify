@@ -94,7 +94,7 @@ const YourProfile = () => {
           <h2 className="h3">
             Reviews by {currentUser && currentUser.username}
           </h2>
-          <ReviewList reviews={reviews} />
+          <ReviewList reviews={reviews} currentUser={currentUser} />
           <h2 className="h3">
             Booklists by {currentUser && currentUser.username}
           </h2>

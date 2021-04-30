@@ -109,7 +109,7 @@ const OtherProfile = () => {
           <h2 className="h3">
             Reviews by {otherUser && otherUser.username}
           </h2>
-          <ReviewList reviews={reviews} />
+          <ReviewList reviews={reviews} currentUser={currentUser} />
           <h2 className="h3">
             Booklists by {otherUser && otherUser.username}
           </h2>

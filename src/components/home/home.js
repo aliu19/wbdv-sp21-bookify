@@ -4,11 +4,14 @@ import BookCard from "../book-card";
 import Details from "../search/details";
 import reviewService from "../../services/review-service"
 import ReviewList from "../reviews/review-list";
+import userService from "../../services/user-service";
 
 const Home = () => {
   const id = 'jaM7DwAAQBAJ'
   const [book, setBook] = useState(null)
   const [reviews, setReviews] = useState({})
+  const [currentUser, setCurrentUser] = useState({})
+
   useEffect(() => {
     bookService.findBookById(id).then(result => {
       setBook(result);
@@ -16,8 +19,13 @@ const Home = () => {
     reviewService.findReviewsForHome()
     .then(reviews => setReviews(reviews))
   }, [])
-  console.log(reviews)
 
+  useEffect(() => {
+    userService.profile()
+      .then(user => {
+        setCurrentUser(user)
+      })
+  }, [])
   return (
     <div>
       <h1 className="sr-only">Home</h1>
@@ -30,7 +38,7 @@ const Home = () => {
 
       <div className="p-4">
         <h2 className="h4">These are the books that everyone's talking about:</h2>
-        <ReviewList reviews={reviews}/>
+        <ReviewList currentUser={currentUser} reviews={reviews} />
       </div>
     </div>
   )

@@ -6,8 +6,8 @@ export const findBookByTitle = (title) => {
   .then(response => response.json())
 }
 
-export const findBookById = (vid) => {
-  return fetch(`${GOOGLE_URL}/volumes/${vid}?key=${API_KEY}`)
+export const findBookById = (vid, lite) => {
+  return fetch(`${GOOGLE_URL}/volumes/${vid}?key=${API_KEY}${lite ? '&projection=lite' : ''}`)
   .then(response => response.json())
 }
 

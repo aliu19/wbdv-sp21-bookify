@@ -1,14 +1,18 @@
 import React from 'react'
 import Review from './review'
+import { useRouteMatch } from 'react-router-dom'
 
-const ReviewList = ({ reviews }) => {
+const ReviewList = ({ reviews, currentUser }) => {
+  const isProfile = !!(useRouteMatch('/profile'))
+  const isHome = useRouteMatch({ path: '/', strict: true })?.isExact
+  const showBookInfo = isProfile || isHome
+  const showAuthorInfo = !isProfile
   return (
     <ul className="ml-0 pl-0">
       {!!reviews.length && reviews.map(r =>
-        <li key={r._id}
-          className="card mb-2 p-3 pb-2">
-          <Review review={r} />
-        </li>
+        <Review review={r} key={r._id} currentUser={currentUser}
+          showBookInfo={showBookInfo}
+          showAuthorInfo={showAuthorInfo} />
       )}
     </ul>
   )
