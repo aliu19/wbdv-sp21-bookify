@@ -35,7 +35,7 @@ const Login = () => {
                  onChange={(e) => {setCredentials({...credentials, password: e.target.value})}}
                  placeholder="password"></input>
         </div>
-        <div className="row mb-4">
+        <div className="row mb-4 justify-content-between">
           <button className="btn btn-primary"
                   onClick={login}>
             Login
