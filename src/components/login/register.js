@@ -32,6 +32,13 @@ const Register = () => {
           <input id="email" type="email" className="form-control"></input>
         </div>
         <div className="row mb-4">
+          <label htmlFor="roleFld">Role</label>
+          <select className="form-control" id="roleFld">
+            <option value="GENERAL_USER">General User</option>
+            <option value="ADMIN">Admin</option>
+          </select>
+        </div>
+        <div className="row mb-4">
           <button className="btn btn-primary" type="submit">Register</button>
           <Link className="btn btn-link" to="/login">Login</Link>
         </div>
