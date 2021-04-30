@@ -5,7 +5,6 @@ import userService from "../../services/user-service"
 const Login = () => {
   const [credentials, setCredentials] = useState({username: "", password: ""})
   const login = () => {
-    console.log(credentials)
     userService.login(credentials)
       .then((user) => {
         if(user === 0) {

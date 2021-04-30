@@ -2,10 +2,12 @@ import React from 'react'
 import { Link, useRouteMatch } from 'react-router-dom'
 
 const Review = ({ review }) => {
-  const isProfile = !!useRouteMatch('/profile')
+  const isProfile = !!(useRouteMatch('/profile'))
+  const isHome = useRouteMatch({ path: '/', strict: true })?.isExact
+  const showBookInfo = isProfile || isHome
   return (
     <div>
-      {isProfile ?
+      {showBookInfo ?
         <Link to={`/details/${review.bookId}`}>
           <strong>{review?.book?.volumeInfo?.title}</strong>
       </Link>

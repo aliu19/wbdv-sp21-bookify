@@ -16,7 +16,7 @@ const Home = () => {
     reviewService.findReviewsForHome()
     .then(reviews => setReviews(reviews))
   }, [])
-  console.log(book)
+  console.log(reviews)
 
   return (
     <div>
@@ -28,12 +28,10 @@ const Home = () => {
         </div>
       </div>
 
-      <div>
+      <div className="p-4">
+        <h2 className="h4">These are the books that everyone's talking about:</h2>
         <ReviewList reviews={reviews}/>
       </div>
-
-      {/*  TODO change to logout button when logged in
-      TODO recent reviews*/}
     </div>
   )
 }
