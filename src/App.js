@@ -1,5 +1,5 @@
 import React from "react";
-import {BrowserRouter, Route} from "react-router-dom";
+import { BrowserRouter, Route } from "react-router-dom";
 import Search from "./components/search/search";
 import Details from "./components/search/details";
 import Home from "./components/home/home";
@@ -14,32 +14,32 @@ function App() {
   return (
     <BrowserRouter>
       <Route path={["/search/:searchQuery", "/search", "/"]}>
-        <Header/>
+        <Header />
       </Route>
       <Layout>
         <Route path={["/"]} exact={true}>
-          <Home/>
+          <Home />
         </Route>
         <Route path={["/search", "/search/:searchQuery"]} exact={true}>
-          <Search/>
+          <Search />
         </Route>
         <Route path={["/details/:bookId"]} exact={true}>
-          <Details/>
+          <Details />
         </Route>
         <Route path={"/login"} exact={true}>
-          <Login/>
+          <Login />
         </Route>
-        <Route path={"/register"} exact={true}>
-          <Register/>
+        <Route path={["/register", "/register/admin"]} exact={true}>
+          <Register />
         </Route>
         <Route path={["/profile"]} exact={true}>
-          <YourProfile/>
+          <YourProfile />
         </Route>
         <Route path={["/profile/:profileId"]} exact={true}>
-          <OtherProfile/>
+          <OtherProfile />
         </Route>
       </Layout>
-      </BrowserRouter>
+    </BrowserRouter>
   );
 }
 

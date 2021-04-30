@@ -1,10 +1,10 @@
-import React, {useState, useEffect} from 'react'
-import {Link, useHistory} from 'react-router-dom'
+import React, { useState } from 'react'
+import { Link, withRouter, useRouteMatch } from 'react-router-dom'
 import userService from "../../services/user-service"
 
-const Register = () => {
-  const [credentials, setCredentials] = useState({username: "", password: "", firstName: "", lastName: "", email: "", role: "GENERAL_USER"})
-  const history = useHistory()
+const Register = ({ history }) => {
+  const allowAdmin = !!useRouteMatch('/register/admin')
+  const [credentials, setCredentials] = useState({ username: "", password: "", firstName: "", lastName: "", email: "", role: "GENERAL_USER" })
   const register = () => {
     userService.register(credentials)
       .then((user) => {
@@ -33,6 +33,7 @@ const Register = () => {
         <div className="row mb-2">
           <label>Password</label>
           <input className="form-control"
+            // type="password"
                  onChange={(e) => {setCredentials({...credentials, password: e.target.value})}}
                  value={credentials.password}></input>
         </div>
@@ -42,32 +43,33 @@ const Register = () => {
                  onChange={(e) => {setCredentials({...credentials, firstName: e.target.value})}}
                  value={credentials.firstName}></input>
         </div>
-        <div className="row mb-4">
+        <div className="row mb-2">
           <label>Last name</label>
           <input className="form-control"
                  onChange={(e) => {setCredentials({...credentials, lastName: e.target.value})}}
                  value={credentials.lastName}></input>
         </div>
-        <div className="row mb-4">
+        <div className="row mb-2">
           <label>Email</label>
           <input className="form-control"
+            type="email"
                  onChange={(e) => {setCredentials({...credentials, email: e.target.value})}}
                  value={credentials.email}></input>
         </div>
-        {/*TODO for admin to change in people's profiles*/}
-        {/*<div className="row mb-4">*/}
-        {/*  <label>Role</label>*/}
-        {/*  <select className="form-control"*/}
-        {/*          onChange={(e) => {setCredentials({...credentials, role: e.target.value})}}*/}
-        {/*          value={credentials.role}>*/}
-        {/*    <option value="none" className="selected disabled hidden"/>*/}
-        {/*    <option value="GENERAL_USER">General User</option>*/}
-        {/*    <option value="ADMIN">Admin</option>*/}
-        {/*  </select>*/}
-        {/*</div>*/}
         <div className="row mb-4">
+          <label>Role</label>
+          <select className="form-control"
+            onChange={(e) => { setCredentials({ ...credentials, role: e.target.value }) }}
+            value={credentials.role}
+            disabled={!allowAdmin && "disabled"}>
+            <option value="none" className="selected disabled hidden" />
+            <option value="GENERAL_USER">General User</option>
+            <option value="ADMIN">Admin</option>
+          </select>
+        </div>
+        <div className="row mb-4 justify-content-between">
           <button className="btn btn-primary"
-                  onClick={register}>
+            onClick={register}>
             Register
           </button>
           <Link className="btn btn-link" to="/login">Login</Link>
@@ -77,4 +79,4 @@ const Register = () => {
 
   )
 }
-export default Register
+export default withRouter(Register)
