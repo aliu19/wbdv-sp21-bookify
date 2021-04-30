@@ -2,14 +2,19 @@ import { useEffect, useState } from "react";
 import bookService from "../../services/book-service";
 import BookCard from "../book-card";
 import Details from "../search/details";
+import reviewService from "../../services/review-service"
+import ReviewList from "../reviews/review-list";
 
 const Home = () => {
   const id = 'jaM7DwAAQBAJ'
   const [book, setBook] = useState(null)
+  const [reviews, setReviews] = useState({})
   useEffect(() => {
     bookService.findBookById(id).then(result => {
       setBook(result);
     })
+    reviewService.findReviewsForHome()
+    .then(reviews => setReviews(reviews))
   }, [])
   console.log(book)
 
@@ -22,19 +27,14 @@ const Home = () => {
           <Details bid={id} summary />
         </div>
       </div>
-      <div className="container-fluid py-4">
-        <div className="row">
-          {Array(6).fill(book).map(b => book && (
-            <div className="col-6 col-sm-4 col-md-2">
-              <BookCard book={book} />
-            </div>
-          ))}
-        </div>
+
+      <div>
+        <ReviewList reviews={reviews}/>
       </div>
 
       {/*  TODO change to logout button when logged in
       TODO recent reviews*/}
-      </div>
+    </div>
   )
 }
 export default Home

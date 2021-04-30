@@ -37,9 +37,15 @@ const createReview = (review) => {
     }).then(response => response.json())
 }
 
+const findReviewsForHome = () => {
+    return fetch(`${REVIEWS_URL}/home/reviews`)
+    .then(response => response.json())
+}
+
 export default {
     findReviewsForBook,
     findReviewsForUser,
     findAllReviews,
-    createReview
+    createReview,
+    findReviewsForHome
 }
