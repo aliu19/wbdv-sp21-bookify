@@ -100,12 +100,10 @@ const OtherProfile = () => {
                   Update
                 </button>
               </div>
-              {JSON.stringify(otherUser)}
             </form>
           </div>
         }
         {
-          currentUser.role !== "ADMIN" &&
           otherUser && otherUser.username &&
           (<div>
             <h2 className="h3">
