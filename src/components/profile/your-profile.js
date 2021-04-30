@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import {Link, useHistory} from 'react-router-dom'
+import {useHistory} from 'react-router-dom'
 import userService from "../../services/user-service"
 
 const YourProfile = () => {
@@ -64,8 +64,7 @@ const YourProfile = () => {
           <select className="form-control"
             onChange={(e) => { setCurrentUser({ ...currentUser, role: e.target.value }) }}
             value={currentUser.role}
-            disabled={currentUser.role !== "ADMIN" && "disabled"}>
-            {/*<option value="none" className="selected disabled hidden" />*/}
+            disabled="disabled">
             <option value="GENERAL_USER">General User</option>
             <option value="ADMIN">Admin</option>
           </select>
@@ -77,8 +76,6 @@ const YourProfile = () => {
             </button>
           </div>
         </form>
-
-        {JSON.stringify(currentUser)}
 
       {/*
       TODO UpdateUser, DeleteUser
