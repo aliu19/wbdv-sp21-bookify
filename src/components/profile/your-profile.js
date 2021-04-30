@@ -1,9 +1,15 @@
 import React, { useEffect, useState } from 'react'
+import reviewService from '../../services/review-service'
 import userService from "../../services/user-service"
+import BookList from '../book-list'
+import ReviewList from '../reviews/review-list'
 
 const YourProfile = () => {
 
   const [currentUser, setCurrentUser] = useState({})
+  const [reviews, setReviews] = useState({})
+  const [bookLists, setBookLists] = useState({})
+
   const updateUser = () => {
     userService.updateUser(currentUser._id, currentUser)
       .then((updatedUser) => {
@@ -17,6 +23,14 @@ const YourProfile = () => {
         setCurrentUser(currentUser)
       })
   }, [])
+
+  useEffect(() => {
+    currentUser._id && reviewService.findReviewsForUser(currentUser._id).then(res => setReviews(res))
+  }, [currentUser])
+
+  useEffect(() => {
+    currentUser._id && userService.getBookLists(currentUser._id).then(res => setBookLists(res))
+  }, [currentUser])
 
   return (
     <div>
@@ -74,7 +88,19 @@ const YourProfile = () => {
             </button>
         </div>
       </form>
-
+      {
+        currentUser && currentUser.username &&
+        (<div className="mb-4">
+          <h2 className="h3">
+            Reviews by {currentUser && currentUser.username}
+          </h2>
+          <ReviewList reviews={reviews} />
+          <h2 className="h3">
+            Booklists by {currentUser && currentUser.username}
+          </h2>
+          {!!bookLists.length ? bookLists.map(b => <BookList bookList={b} key={b.name} />) : <div>No booklists here!</div>}
+        </div >)
+      }
       {/*
       TODO UpdateUser, DeleteUser
       TODO show username, password, first name, last name, email, role
