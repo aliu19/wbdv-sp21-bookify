@@ -1,12 +1,41 @@
 import React, {useEffect, useState} from 'react'
 import userService from "../../services/user-service";
 import {useParams} from "react-router";
+import reviewService from '../../services/review-service';
+import ReviewList from '../reviews/review-list';
+import BookList from '../book-list';
 
 const OtherProfile = () => {
-
+  
   const {profileId} = useParams()
   const [currentUser, setCurrentUser] = useState({})
   const [otherUser, setOtherUser] = useState({})
+  const [reviews, setReviews] = useState({})
+  const [bookLists, setBookLists] = useState({})
+
+  useEffect(() => {
+    userService.profile()
+    .then((currentUser) => {
+      setCurrentUser(currentUser)
+    })
+  }, [])
+  
+  useEffect(() => {
+    userService.getUserById(profileId)
+    .then((user) => {
+      setOtherUser(user)
+    })
+  }, [profileId])
+
+  useEffect(() => {
+    otherUser._id && reviewService.findReviewsForUser(otherUser._id).then(res => setReviews(res))
+  }, [user])
+
+  // useEffect(() => {
+  //   user._id && userService.getBookLists(user._id).then(res => setBookLists(res))
+  // }, [user])
+
+const OtherProfile = () => {
 
   const updateUser = () => {
     userService.updateUser(otherUser._id, otherUser)
@@ -90,10 +119,23 @@ const OtherProfile = () => {
         }
         {
           currentUser.role !== "ADMIN" &&
-          <div>
-            TODO reviews and booklists
-          </div>
+          user && user.username &&
+          (<div>
+            <h2 className="h3">
+              Reviews by {user && user.username}
+            </h2>
+            <ReviewList reviews={reviews} />
+            <h2 className="h3">
+              Booklists by {user && user.username}
+            </h2>
+            {!!bookLists.length && bookLists.map(b => <BookList bookList={b} />)}
+          </div>)
         }
+           
+      {/* {JSON.stringify(user)} */}
+      {/* {JSON.stringify(bookLists)} */}
+      {/* {JSON.stringify(reviews)} */}
+      {/*  TODO GetUser*/}
       </div>
   )
 }
