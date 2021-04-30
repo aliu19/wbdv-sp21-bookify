@@ -39,10 +39,22 @@ const logout = () => {
 const getUserById = id =>
   fetch(`${USERS_URL}/users/${id}`).then(res => res.json())
 
+const updateUser = (uid, user) => {
+  return fetch(`${USERS_URL}/api/users/${uid}`, {
+    method: "PUT",
+    body: JSON.stringify(user),
+    headers: {
+      'content-type': 'application/json'
+    }
+  })
+  .then(response => response.json())
+}
+
 export default {
   register,
   profile,
   login,
   logout,
-  getUserById
+  getUserById,
+  updateUser
 }
