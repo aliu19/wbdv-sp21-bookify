@@ -23,7 +23,6 @@ const Register = ({ history }) => {
           Register
         </h1>
       </div>
-      <form>
         <div className="row mb-2">
           <label>Username</label>
           <input className="form-control"
@@ -71,8 +70,7 @@ const Register = ({ history }) => {
             Register
           </button>
           <Link className="btn btn-link" to="/login">Login</Link>
-        </div>
-      </form>
+      </div>
     </div>
 
   )
