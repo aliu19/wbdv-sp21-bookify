@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom'
 import userService from "../../services/user-service"
 
 const Login = () => {
-  const [credentials, setCredentials] = useState({username: "", password: ""})
+  const [credentials, setCredentials] = useState()
   const login = () => {
     userService.login(credentials)
       .then((user) => {
