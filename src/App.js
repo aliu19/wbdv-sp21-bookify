@@ -12,7 +12,7 @@ import Layout from './components/Layout/layout'
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={"https://aliu19.github.io/wbdv-sp21-bookify"}>
       <Route path={["/search/:searchQuery", "/search", "/"]}>
         <Header/>
       </Route>
