@@ -12,7 +12,7 @@ import Layout from './components/Layout/layout'
 
 function App() {
   return (
-    <BrowserRouter basename={"/wbdv-sp21-bookify"}>
+    <HashRouter basename={"/wbdv-sp21-bookify"}>
       <Route path={["/search/:searchQuery", "/search", "/"]}>
         <Header/>
       </Route>
@@ -39,7 +39,7 @@ function App() {
           <OtherProfile/>
         </Route>
       </Layout>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
