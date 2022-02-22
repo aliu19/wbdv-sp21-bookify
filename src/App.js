@@ -12,7 +12,7 @@ import Layout from './components/Layout/layout'
 
 function App() {
   return (
-    <HashRouter basename={"/wbdv-sp21-bookify"}>
+    <HashRouter>
       <Route path={["/search/:searchQuery", "/search", "/"]}>
         <Header/>
       </Route>
