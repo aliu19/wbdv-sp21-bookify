@@ -1,8 +1,8 @@
 import userService from "./user-service"
 import bookService from "./book-service"
+import {API} from "./book-list-service";
 
-
-const REVIEWS_URL = "https://lit-woodland-33518.herokuapp.com/api"
+const REVIEWS_URL = `${API}/api`
 
 export const findReviewsForBook = async (title) => {
     const reviews = await fetch(`${REVIEWS_URL}/books/${title}/reviews`)

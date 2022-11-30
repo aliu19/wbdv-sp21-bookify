@@ -1,4 +1,6 @@
-const USERS_URL = "https://lit-woodland-33518.herokuapp.com/api"
+import {API} from "./book-list-service";
+
+const USERS_URL = `${API}/api`
 
 const register = (credentials) => {
   return fetch(`${USERS_URL}/register`, {
