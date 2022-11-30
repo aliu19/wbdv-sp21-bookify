@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/wbdv-sp21-bookify/static/css/main.f1e2580f.css",
-    "main.js": "/wbdv-sp21-bookify/static/js/main.bb16b0bb.js",
+    "main.css": "/wbdv-sp21-bookify/static/css/main.d970ced3.css",
+    "main.js": "/wbdv-sp21-bookify/static/js/main.a24f7b9f.js",
     "static/js/787.ea11155d.chunk.js": "/wbdv-sp21-bookify/static/js/787.ea11155d.chunk.js",
     "static/media/fa-solid-900.svg": "/wbdv-sp21-bookify/static/media/fa-solid-900.13de59f1a36b6cb4bca0.svg",
     "static/media/fa-brands-400.svg": "/wbdv-sp21-bookify/static/media/fa-brands-400.216edb96b562c79adc09.svg",
@@ -19,12 +19,12 @@
     "static/media/fa-regular-400.woff": "/wbdv-sp21-bookify/static/media/fa-regular-400.3672264812746c3c7225.woff",
     "static/media/fa-regular-400.woff2": "/wbdv-sp21-bookify/static/media/fa-regular-400.68c5af1f48e2bfca1e57.woff2",
     "index.html": "/wbdv-sp21-bookify/index.html",
-    "main.f1e2580f.css.map": "/wbdv-sp21-bookify/static/css/main.f1e2580f.css.map",
-    "main.bb16b0bb.js.map": "/wbdv-sp21-bookify/static/js/main.bb16b0bb.js.map",
+    "main.d970ced3.css.map": "/wbdv-sp21-bookify/static/css/main.d970ced3.css.map",
+    "main.a24f7b9f.js.map": "/wbdv-sp21-bookify/static/js/main.a24f7b9f.js.map",
     "787.ea11155d.chunk.js.map": "/wbdv-sp21-bookify/static/js/787.ea11155d.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f1e2580f.css",
-    "static/js/main.bb16b0bb.js"
+    "static/css/main.d970ced3.css",
+    "static/js/main.a24f7b9f.js"
   ]
 }
